@@ -5,23 +5,38 @@
 
     .controller('LunchCheckController', LunchCheckController);
     
-    LunchCheckController.$inject ['$scope'];
+    LunchCheckController.$inject = ['$scope'];
 
     function LunchCheckController($scope){
-        $scope.name="";
-        $scope.totalValue = 0;
+        $scope.items="";
+        $scope.response = "";
 
         $scope.calculate = function(){
-            var totalNameValue = calculateLunch($scope.name); // total value
-            $scope.totalValue = totalNameValue;
+            var totalValue = calculateLunch($scope.items); // Value calculated from function
+            $scope.response = totalValue;
         };
 
         function calculateLunch(string){
-            var totalStringValue = 0;
-            for(var i = 0; i < string.length; i++){
-                totalStringValue += string.charCodeAt(i);
+            var itemCount = 1;
+            var responseString = "";
+            if(string.length == 0){
+                responseString = "Please enter data first!";
             }
-            return totalStringValue;
+            else{
+                for(var i = 0; i < string.length; i++){
+                    if(string.substring(i,i+1) == ",")
+                    {
+                        itemCount++;
+                    }
+                }
+                if(itemCount > 4){
+                    responseString = "Too much!";
+                }
+                else{
+                    responseString = "Enjoy!";
+                }
+            }
+            return responseString;
         }
     }
 })();

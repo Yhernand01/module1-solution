@@ -11,13 +11,12 @@
     <div ng-controller='LunchCheckController' class="container">
         <h1>Lunch Check</h1>
         <div>
-            Your name:
-            <input type="text" ng-model="name">
+            Please fill the text separated by commas:
+            <input type="text" ng-model="items">
             <button ng-click="calculate();">Calculate</button>
         </div>
-        <div>Enter : {{totalValue}}
-            <br>
-            {{name}}
+        <div> 
+            <p class="result">{{response}}</p>
         </div>
     </div>   
 </body>
