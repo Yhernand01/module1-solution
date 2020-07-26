@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
-    <script src="app.js"></script>
-    <title>Assignment 1</title>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Lunch Check</title>
 </head>
-<body ng-app="App"> 
-    <h1>Name calculator</h1>
-    <div ng-controller='ControllerApp'>
+<body ng-app="LunchCheck"> 
+    <div ng-controller='LunchCheckController' class="container">
+        <h1>Lunch Check</h1>
         <div>
             Your name:
-            <input type="text" ng-model="name" ng-keyUp="displayNumeric();">
+            <input type="text" ng-model="name">
+            <button ng-click="calculate();">Calculate</button>
         </div>
-        <div>Total numeric value of person's name is: {{totalValue}}
+        <div>Enter : {{totalValue}}
             <br>
             {{name}}
         </div>
